@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ÜRÜNLER</string>
+    <string name="bos">BOS</string>
+    <string name="ürün">ürün ismi</string>
+    <string name="login">LOG IN</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+</resources>
