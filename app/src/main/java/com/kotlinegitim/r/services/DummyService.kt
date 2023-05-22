@@ -9,17 +9,16 @@ import retrofit2.http.*
 interface DummyService {
 
     @POST("/auth/login")
-    fun login( @Body myUser: User): Call<UserData>
+    fun login( @Body myUser: User): Call<User>
 
     @GET("products")
     fun getProducts() : Call<DummyProducts>
 
     @GET("products/{id}")
-    fun singleProduct( @Path("id") id: Int ) : Call<Product>
+    fun Product( @Path("id") id: Int) : Call<Product>
 
-    @Headers("Content-Type: application/json")
+    @Headers("Content-Type:application/json")
     @POST("/carts/add")
-
     /*@HTTP(method = "POST", path = "carts/add", hasBody = true,)*/
     fun Add(@Body data: Cart): Call<ProductResponse>
 

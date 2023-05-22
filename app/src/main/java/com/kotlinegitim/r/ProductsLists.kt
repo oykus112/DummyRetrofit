@@ -40,7 +40,7 @@ class ProductsLists : AppCompatActivity() {
         dummyService = ApiClient.getClient().create(DummyService::class.java)
 
         for (id in 1..10){
-            dummyService.singleProduct(id).enqueue(object : Callback<Product> {
+            dummyService.Product(id).enqueue(object : Callback<Product> {
                 override fun onResponse(
                     call: Call<Product>,
                     response: Response<Product>
@@ -49,10 +49,7 @@ class ProductsLists : AppCompatActivity() {
 
                     if (datas != null) {
 
-                        var pr = Product(datas.id,datas.title,datas.description,datas.price,datas.discountPercentage,
-                        datas.rating,datas.stock,datas.brand,datas.category,datas.thumbnail,datas.images)
-                        productList.add(pr)
-
+                        productList.add(datas)
 
                     }
 

@@ -40,16 +40,16 @@ class MainActivity : AppCompatActivity() {
     val btnOnClickListener = View.OnClickListener {
         val username = name.text.toString()
         val pass = pass.text.toString()
-        val jwtUser = User(username,pass)
+        val user = User(username,pass)
 
-        if (jwtUser.username.isNullOrEmpty() || jwtUser.password.isNullOrEmpty() ) {
+        if (user.username.isNullOrEmpty() || user.password.isNullOrEmpty() ) {
 
 
             Toast.makeText(this,"username ya da email boş ",Toast.LENGTH_LONG).show()
         }
         else {
-            dummyService.login(jwtUser).enqueue(object : Callback<UserData> {
-                override fun onResponse(call: Call<UserData>, response: Response<UserData>) {
+            dummyService.login(user).enqueue(object : Callback<User> {
+                override fun onResponse(call: Call<User>, response: Response<User>) {
                     val myUser = response.body()
                     Log.d("status", response.code().toString())
 
@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
 
-                override fun onFailure(call: Call<UserData>, t: Throwable) {
+                override fun onFailure(call: Call<User>, t: Throwable) {
                     Log.e("login", t.toString())
                     Toast.makeText(this@MainActivity, "Internet or Server Fail", Toast.LENGTH_LONG)
                         .show()

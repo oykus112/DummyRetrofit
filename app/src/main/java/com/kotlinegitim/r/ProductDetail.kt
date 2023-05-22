@@ -1,10 +1,11 @@
 package com.kotlinegitim.r
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.kotlinegitim.r.configs.ApiClient
@@ -12,7 +13,6 @@ import com.kotlinegitim.r.models.Cart
 import com.kotlinegitim.r.models.ProductResponse
 import com.kotlinegitim.r.models.Products
 import com.kotlinegitim.r.services.DummyService
-import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -35,6 +35,8 @@ class ProductDetail : AppCompatActivity() {
     lateinit var add : Button
 
     lateinit var cart : Cart
+
+    var imageURL : String =""
 
 
 
@@ -59,49 +61,63 @@ class ProductDetail : AppCompatActivity() {
 
 
         val id = intent.getLongExtra("id",0)
-        val description = intent.getStringExtra("description")
-        val price = intent.getLongExtra("price",0)
-        val discount = intent.getLongExtra("discount",0)
-        val rating = intent.getDoubleExtra("rating",0.0)
-        val stock = intent.getLongExtra("stock",0)
-        val brand = intent.getStringExtra("brand")
-        val category = intent.getStringExtra("category")
-        val images = intent.getStringExtra("images")
-
-        idTxt.text = "ID:"+id.toString()
-        descriptionTxt.text ="DESCRIPTION:"+ description
-        priceTxt.text = "PRICE:"+ price.toString()
-        discountTxt.text = "DISCOUNT:"+discount.toString()
-        ratingTxt.text ="RATING:"+rating.toString()
-        stockTxt.text = "STOCK:"+stock.toString()
-        brandTxt.text ="BRAND:"+brand
-        categoryTxt.text ="CATEGORY:"+category
-
-
-
-        Glide.with(this).load(images).into(image)
-
+        val image_url = intent.getStringExtra("images")
 
         dummyService = ApiClient.getClient().create(DummyService::class.java)
+
+
+        dummyService.Product(id.toInt()).enqueue(object : Callback<Product> {
+            override fun onResponse(
+                call: Call<Product>,
+                response: Response<Product>
+            ) {
+                val datas = response.body()
+
+                if (datas != null) {
+                    idTxt.text = "ID:"+id.toString()
+                    descriptionTxt.text ="DESCRIPTION:"+ datas.description
+                    priceTxt.text = "PRICE:"+ datas.price
+                    discountTxt.text = "DISCOUNT:"+datas.discountPercentage
+                    ratingTxt.text ="RATING:"+datas.rating
+                    stockTxt.text = "STOCK:"+datas.stock
+                    brandTxt.text ="BRAND:"+datas.brand
+                    categoryTxt.text ="CATEGORY:"+datas.category
+
+
+
+
+
+
+
+
+                }
+
+
+            }
+
+            override fun onFailure(call: Call<Product>, t: Throwable) {
+                println("Not yet implemented")
+            }
+
+        })
+
+        println("Image URL $image_url")
+        Glide.with(this@ProductDetail).load(image_url).into(image)
+
+
+
+
+        val products = mutableListOf<Products>()
+
+        val product = Products(id,1)
+        products.add(product)
+
+        val cart = Cart(1,products)
 
 
 
         add.setOnClickListener {
 
-
-            //val list= mutableListOf<Products>()
-
-            val products = mutableListOf<Products>()
-            //val carts =  mutableListOf<Cart>()
-
-            val product = Products(1,1)
-            val product2 = Products(50,2)
-            products.add(product)
-            products.add(product2)
-
-
-            //list.add(Products(1,1))
-            val cart = Cart(1,products)
 
 
             dummyService.Add(cart).enqueue(object : Callback<ProductResponse> {
@@ -110,24 +126,27 @@ class ProductDetail : AppCompatActivity() {
                     response: Response<ProductResponse>
                 ) {
 
-
                     val data = response.body()
 
-                    println("code hata:")
+                    if(response.isSuccessful) {
+                        println("SUCCESSFUL")
 
-                    var error = response.errorBody().toString()
-                    println (error)
+                        if (data != null) {
+
+                            Toast.makeText(this@ProductDetail,"Product is add to basket !",Toast.LENGTH_LONG).show()
+                            var intent = Intent(this@ProductDetail, Basket::class.java)
+
+                            startActivity(intent)
+                        }
 
 
-                    //var error = Gson().fromJson(response.errorBody()?.string(),Cart::class.java)
+
+                    } else {
+                        println(response.errorBody()?.source().toString())
 
 
-                    if (data != null){
-
-                        Log.d("detay", data.id.toString())
                     }
 
-                    println("sepete ekle")
                 }
 
                 override fun onFailure(call: Call<ProductResponse>, t: Throwable) {
@@ -139,24 +158,7 @@ class ProductDetail : AppCompatActivity() {
         }
 
 
-       /* add.setOnClickListener{
 
-            dummyService.getProduct(1).enqueue(object : Callback<Cart>{
-                override fun onResponse(call: Call<Cart>, response: Response<Cart>) {
-                   val data = response.body()
-
-                    if (data != null){
-
-                        println(data.products)
-                    }
-                }
-
-                override fun onFailure(call: Call<Cart>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-
-            })
-        }*/
 
 
 
