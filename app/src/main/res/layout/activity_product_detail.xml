@@ -7,22 +7,19 @@
     tools:context=".ProductDetail">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.497">
 
         <ImageView
             android:id="@+id/proImage"
             android:layout_width="match_parent"
-            android:layout_height="75dp"
+            android:layout_height="100dp"
             android:contentDescription="@string/bos"
             tools:ignore="ImageContrastCheck"
             tools:srcCompat="@tools:sample/avatars" />
@@ -82,5 +79,11 @@
             android:layout_height="wrap_content"
             android:text="@string/bos"
             android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/basket"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Basket" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
