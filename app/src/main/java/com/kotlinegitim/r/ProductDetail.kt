@@ -90,6 +90,8 @@ class ProductDetail : AppCompatActivity() {
 
 
 
+
+
                 }
 
 
@@ -136,6 +138,8 @@ class ProductDetail : AppCompatActivity() {
                             Toast.makeText(this@ProductDetail,"Product is add to basket !",Toast.LENGTH_LONG).show()
                             var intent = Intent(this@ProductDetail, Basket::class.java)
 
+                            intent.putExtra("id_no", data.products.get(0).id)
+                            intent.putExtra("quantity_no", data.products.get(0).quantity)
                             startActivity(intent)
                         }
 

@@ -1,7 +1,9 @@
 package com.kotlinegitim.r
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Parcelable
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import com.kotlinegitim.r.configs.ApiClient
@@ -18,6 +20,8 @@ class Basket : AppCompatActivity() {
     lateinit var dummyService: DummyService
 
     lateinit var  listBasket : ListView
+
+    //lateinit var list: MutableList<Products>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,6 +40,16 @@ class Basket : AppCompatActivity() {
     override fun onStart() {
 
         var listproduct = mutableListOf<Products>()
+
+
+        var id = intent.getLongExtra("id_no",0)
+        var quantity = intent.getLongExtra("quantity_no",0)
+        var obj = Products(id,quantity)
+
+        if (id >0){
+
+            listproduct.add(obj)
+        }
 
         val adaptor = BasketCustomAdaptor(this@Basket,R.layout.basket_custom_layout,listproduct)
 

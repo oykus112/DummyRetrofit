@@ -33,14 +33,6 @@ class ProductCustomAdaptor ( private val context: Activity, private val layout_i
                 val intent = Intent(context, ProductDetail::class.java)
 
                 intent.putExtra("id",products.id)
-               /* intent.putExtra("price",products.price)
-                intent.putExtra("description",products.description)
-                intent.putExtra("discount",products.discountPercentage)
-                intent.putExtra("rating",products.rating)
-                intent.putExtra("stock",products.stock)
-                intent.putExtra("brand",products.brand)
-                intent.putExtra("category",products.category)*/
-
                 intent.putExtra("images",products.images.get(0))
 
                 context.startActivity(intent)
