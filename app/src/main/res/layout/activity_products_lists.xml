@@ -4,16 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/normalbackground"
     tools:context=".ProductsLists">
+
+    <Button
+        android:id="@+id/basketbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="171dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="152dp"
+        android:backgroundTint="@color/yellow"
+        android:text="CART"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/productView" />
 
     <EditText
         android:id="@+id/editTextTextPersonName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
+        android:layout_width="219dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="106dp"
         android:layout_marginTop="36dp"
-        android:layout_marginEnd="52dp"
+        android:layout_marginEnd="128dp"
         android:layout_marginBottom="10dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/ürün"
         android:inputType="textPersonName"
@@ -23,8 +39,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:autofillHints="" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
         android:id="@+id/productView"
@@ -36,18 +51,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
-
-    <Button
-        android:id="@+id/basketbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="171dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="152dp"
-        android:text="CART"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/productView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -28,8 +28,8 @@ class BasketCustomAdaptor(private val context: Activity, private val resource: I
 
         var products = objects.get(position)
 
-        textID.text = products.id.toString()
-        textQuantity.text = products.quantity.toString()
+        textID.text = "PRODUCT ID: ${products.id}"
+        textQuantity.text = "PRODUCT QUANTITY: ${products.quantity}"
 
 
         return root

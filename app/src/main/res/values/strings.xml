@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">ÜRÜNLER</string>
-    <string name="bos">BOS</string>
-    <string name="ürün">ürün ismi</string>
+    <string name="bos"></string>
+    <string name="ürün">search with product name</string>
     <string name="login">LOG IN</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
+    <string name="basket">Add Basket</string>
+
+
 </resources>

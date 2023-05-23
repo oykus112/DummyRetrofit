@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/normalbackground"
     android:layout_height="match_parent"
     tools:context=".ProductDetail">
 
@@ -19,7 +20,7 @@
         <ImageView
             android:id="@+id/proImage"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="250dp"
             android:contentDescription="@string/bos"
             tools:ignore="ImageContrastCheck"
             tools:srcCompat="@tools:sample/avatars" />
@@ -29,61 +30,70 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/bos"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:textSize="22sp" />
 
         <TextView
             android:id="@+id/price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/bos"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:textSize="22sp" />
 
         <TextView
             android:id="@+id/discountPercantage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/bos"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:textSize="22sp" />
 
         <TextView
             android:id="@+id/rating"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/bos"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:textSize="22sp" />
 
         <TextView
             android:id="@+id/stock"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/bos"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:textSize="22sp" />
 
         <TextView
             android:id="@+id/brand"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/bos"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:textSize="22sp" />
 
         <TextView
             android:id="@+id/category"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/bos"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:textSize="22sp" />
 
         <TextView
             android:id="@+id/description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/bos"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:textSize="22sp" />
 
         <Button
             android:id="@+id/basket"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/yellow"
             android:text="Add Basket" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

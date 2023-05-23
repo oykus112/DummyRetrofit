@@ -75,13 +75,13 @@ class ProductDetail : AppCompatActivity() {
 
                 if (datas != null) {
                     idTxt.text = "ID:"+id.toString()
-                    descriptionTxt.text ="DESCRIPTION:"+ datas.description
-                    priceTxt.text = "PRICE:"+ datas.price
-                    discountTxt.text = "DISCOUNT:"+datas.discountPercentage
-                    ratingTxt.text ="RATING:"+datas.rating
-                    stockTxt.text = "STOCK:"+datas.stock
-                    brandTxt.text ="BRAND:"+datas.brand
-                    categoryTxt.text ="CATEGORY:"+datas.category
+                    descriptionTxt.text ="DESCRIPTION: "+ datas.description
+                    priceTxt.text = "PRICE: "+ datas.price
+                    discountTxt.text = "DISCOUNT: "+datas.discountPercentage
+                    ratingTxt.text ="RATING: "+datas.rating
+                    stockTxt.text = "STOCK: "+datas.stock
+                    brandTxt.text ="BRAND: "+datas.brand
+                    categoryTxt.text ="CATEGORY: "+datas.category
 
 
 

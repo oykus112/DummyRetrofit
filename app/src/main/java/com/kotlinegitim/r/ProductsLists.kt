@@ -85,12 +85,16 @@ class ProductsLists : AppCompatActivity() {
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+
+
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
             }
 
         })
+        proEdit.requestFocus()
 
         basketbtn.setOnClickListener {
 
@@ -99,6 +103,8 @@ class ProductsLists : AppCompatActivity() {
 
             startActivity(intent)
         }
+
+
 
 
 
@@ -132,10 +138,13 @@ class ProductsLists : AppCompatActivity() {
 
         }
 
-        val adapter = ProductCustomAdaptor(this,R.layout.product_custom_layout, productList)
+        val adapter = ProductCustomAdaptor(this@ProductsLists,R.layout.product_custom_layout, productList)
 
         newList.adapter = adapter
         adapter.notifyDataSetChanged()
+
+
+
 
         super.onStart()
     }
