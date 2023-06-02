@@ -4,7 +4,7 @@
 Name | Version|
   <br>Retrofit2 | 2.9.0| </br>
   Kotlin | 1.67|  
-  Glide  | 4.11.0 |</p> 
+  <br>Glide  | 4.11.0 |</br></p> 
 # Project Display Image <p> 
   <a href="https://github.com/oykuyildirim/DummyRetrofit/assets/37236494/33624968-2b9b-4673-b042-3910febe1cc9" target="_blank">
     <img src="https://github.com/oykuyildirim/DummyRetrofit/assets/37236494/33624968-2b9b-4673-b042-3910febe1cc9" width="200" style="max-width:100%;"></a>
