@@ -1,5 +1,5 @@
 # DummyRetrofit
- <p> Bu Android uygulaması, Bir işletmenin admin kontrollü olarak ürünleri listeler ve listedeki ürüne tıklanınca ürün detayına gider. Ürün sepete eklenir.
+ Bu Android uygulaması, Bir işletmenin admin kontrollü olarak ürünleri listeler ve listedeki ürüne tıklanınca ürün detayına gider. Ürün sepete eklenir.
 ### Uygulamada Kullanılan Özellikler:
 Name | Version|
   <br>Retrofit2 | 2.9.0| </br>
